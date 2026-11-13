@@ -1,0 +1,11 @@
+{
+  "name": "goldenhand",
+  "private": true,
+  "type": "module",
+  "description": "Golden Hand Handyman static site. No build step; package.json exists only for tests.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "node tests/e2e-demo.mjs",
+    "test:sql": "bash tests/leads-sql.test.sh"
+  }
+}
