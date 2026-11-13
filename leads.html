@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Golden Hand · Leads</title>
+<style>
+:root{--bg:#0a0907;--panel:#131109;--line:#2a2516;--text:#f5f0e2;--muted:#a59d86;--gold:#d8b25a;--gold2:#f3d58a;--good:#7de2a8;--blue:#8fc8ff;--bad:#ff9d8f}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#2a2210 0,transparent 60%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.wrap{max-width:1300px;margin:auto;padding:28px}.eyebrow{letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-size:12px;font-weight:800}
+h1{font-size:clamp(28px,4vw,48px);line-height:1;margin:8px 0 10px}.sub{color:var(--muted);max-width:760px}
+.banner{margin:16px 0;padding:12px 16px;border-radius:12px;border:1px solid #6b4d1a;background:#21180a;color:#ffd99a;font-weight:600}
+.banner.real{border-color:#1f5a3b;background:#0f2118;color:var(--good)}
+.lbl{display:inline-block;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.06em}
+.lbl.REAL{background:#17442d;color:#99f2c2}.lbl.DEMO{background:#443817;color:#ffe49a}.lbl.PENDING{background:#262626;color:#c9c9c9}
+details.caps{margin:10px 0 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+details.caps summary{cursor:pointer;font-weight:700}details.caps ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:6px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));gap:10px;margin:14px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}.stat b{display:block;font-size:26px}.stat span{color:var(--muted);font-size:12px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.bar input,.bar select{background:#100e08;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}.bar input{min-width:220px;flex:1}
+.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px;align-items:start}
+.list{border:1px solid var(--line);border-radius:16px;background:rgba(19,17,9,.9);overflow:hidden}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:12px 14px;border-bottom:1px solid #221e12;cursor:pointer}
+.row:hover,.row.sel{background:#191509}.row .ref{color:var(--gold);font-family:ui-monospace,monospace;font-size:12px}
+.row .job{color:#d8d0b8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row small{color:var(--muted)}
+.empty{padding:28px;color:var(--muted);text-align:center}
+.status{display:inline-block;padding:4px 9px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.04em}
+.NEW{background:#2b2850;color:#c9c3ff}.APPROVED{background:#17442d;color:#99f2c2}.REJECTED{background:#492222;color:#ffb1b1}
+.detail{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px;position:sticky;top:14px}
+.detail h2{margin:4px 0 12px;font-size:22px}.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;margin:0 0 14px}.kv dt{color:var(--muted)}.kv dd{margin:0;white-space:pre-wrap;word-break:break-word}
+.detail textarea{width:100%;background:#0d0b06;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;min-height:70px}
+.btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{border:1px solid #3a321c;border-radius:9px;padding:9px 13px;background:#16130a;color:#f1e8cf;cursor:pointer;font:inherit;font-weight:700}
+.btn.ok{border-color:#2d7a50;background:#123324;color:#a8f5cb}.btn.no{border-color:#7a2d2d;background:#331212;color:#ffc0b8}.btn:disabled{opacity:.5;cursor:not-allowed}
+.err{color:var(--bad);min-height:18px;font-size:13px;margin-top:8px}.log{margin:14px 0 0;padding:0;list-style:none;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:12px;display:grid;gap:4px}
+a{color:var(--blue)}.foot{margin:16px 2px;color:#8a8270;font-size:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+#gate{display:none;max-width:380px;margin:60px auto;background:var(--panel);border:1px solid #3a321c;border-radius:20px;padding:28px}
+#gate label{display:block;font-size:12px;color:var(--muted);margin:12px 0 6px}#gate input{width:100%;background:#0d0b06;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}
+#gate button{width:100%;margin-top:18px;padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#1a1405;font-weight:900;cursor:pointer;font-size:15px}
+#app{display:none}
+@media(max-width:900px){.wrap{padding:16px}.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.detail{position:static}}
+</style>
+</head>
+<body>
+<form id="gate"><div class="eyebrow">Golden Hand · operators</div><h2>Lead console</h2>
+  <label for="em">Email</label><input id="em" type="email" autocomplete="username" required>
+  <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required>
+  <button type="submit">Sign in</button><div class="err" id="gerr"></div></form>
+
+<div id="app"><div class="wrap">
+  <div class="eyebrow">Golden Hand Handyman · powered by AdikAI</div>
+  <h1>Lead console</h1>
+  <div class="sub">Every enquiry from the website lands here as <b>NEW</b>. A person approves it (worth quoting) or rejects it with a reason. Nothing moves on without that decision, and every decision is logged.</div>
+  <div class="banner" id="banner"></div>
+  <details class="caps"><summary>What is real here</summary><ul id="caps"></ul></details>
+  <div class="stats" id="stats"></div>
+  <div class="bar"><input id="q" placeholder="Search name, postcode, job, reference…"><select id="fs"><option value="">All statuses</option><option selected>NEW</option><option>APPROVED</option><option>REJECTED</option></select><button class="btn" id="refresh" type="button">Refresh</button></div>
+  <div class="layout"><div class="list" id="list"></div><div class="detail" id="detail"><div class="empty">Select a lead to review it.</div></div></div>
+  <div class="foot"><span id="who"></span><button class="btn" id="logout" type="button">Sign out</button></div>
+</div></div>
+
+<script type="module">
+import { GH_CONFIG } from './assets/js/gh-config.js';
+import { createStore, capabilities } from './assets/js/leads.js';
+const $ = s => document.querySelector(s);
+const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = iso => iso ? new Date(iso).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) : '';
+const store = createStore(GH_CONFIG);
+let leads = [], selected = null;
+
+$('#banner').textContent = store.mode === 'REAL'
+  ? 'REAL: leads are stored in Supabase and decisions are recorded against your sign-in.'
+  : 'DEMO: no backend is configured, so this console only shows requests made from this browser. See docs/LEAD-INTAKE.md to switch it on.';
+if (store.mode === 'REAL') $('#banner').classList.add('real');
+$('#caps').innerHTML = capabilities(GH_CONFIG).map(c => `<li><span class="lbl ${c.label}">${c.label}</span> ${esc(c.name)}</li>`).join('');
+
+async function load() {
+  try { leads = await store.list(); } catch (e) { $('#list').innerHTML = `<div class="empty">Could not load leads: ${esc(e.message)}</div>`; return; }
+  render();
+  if (selected) show(selected);
+}
+function render() {
+  const q = $('#q').value.trim().toLowerCase(), fs = $('#fs').value;
+  const n = s => leads.filter(l => l.status === s).length;
+  $('#stats').innerHTML = [['Total', leads.length], ['Awaiting decision', n('NEW')], ['Approved', n('APPROVED')], ['Rejected', n('REJECTED')]]
+    .map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join('');
+  const rows = leads.filter(l => (!fs || l.status === fs) && (!q || [l.ref, l.name, l.postcode, l.job, l.category].join(' ').toLowerCase().includes(q)));
+  $('#list').innerHTML = rows.length ? rows.map(l => `<div class="row${l.id === selected ? ' sel' : ''}" data-id="${esc(l.id)}">
+      <span class="ref">${esc(l.ref)}</span>
+      <div><div>${esc(l.name)} <small>· ${esc(l.postcode || 'no postcode')} · ${esc(l.category)}</small></div><div class="job">${esc(l.job)}</div><small>${fmt(l.created_at)} · ${esc(l.urgency)}</small></div>
+      <span class="status ${esc(l.status)}">${esc(l.status)}</span></div>`).join('')
+    : `<div class="empty">${leads.length ? 'No leads match.' : 'No leads yet.'}</div>`;
+  document.querySelectorAll('.row').forEach(r => r.onclick = () => show(r.dataset.id));
+}
+async function show(id) {
+  selected = id; render();
+  const l = leads.find(x => x.id === id); if (!l) return;
+  let ev = [];
+  try { ev = await store.events(id); } catch {}
+  const contact = [l.phone && `<a href="tel:${esc(l.phone.replace(/\s/g, ''))}">${esc(l.phone)}</a>`, l.email && `<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>`].filter(Boolean).join('<br>');
+  $('#detail').innerHTML = `<span class="status ${esc(l.status)}">${esc(l.status)}</span><h2>${esc(l.ref)} · ${esc(l.name)}</h2>
+    <dl class="kv"><dt>Contact</dt><dd>${contact}</dd><dt>Postcode</dt><dd>${esc(l.postcode || '—')}</dd><dt>Job</dt><dd>${esc(l.job)}</dd>
+    <dt>Category</dt><dd>${esc(l.category)} <span class="lbl DEMO">GUESS</span></dd><dt>How soon</dt><dd>${esc(l.urgency)}</dd><dt>Window</dt><dd>${esc(l.preferred_window)}</dd>
+    <dt>Received</dt><dd>${fmt(l.created_at)} via ${esc(l.source)}</dd><dt>Consent</dt><dd>${l.consent ? 'Yes' : 'No'}</dd>
+    ${l.status !== 'NEW' ? `<dt>Decision</dt><dd>${esc(l.status)} by ${esc(l.decided_by)}, ${fmt(l.decided_at)}${l.decision_note ? `<br>${esc(l.decision_note)}` : ''}</dd>` : ''}</dl>
+    ${l.status === 'NEW' ? `<label for="note" style="color:var(--muted);font-size:12px">Decision note (required to reject)</label><textarea id="note" placeholder="e.g. Call booked for Tue to confirm scope / Outside service area"></textarea>
+    <div class="btns"><button class="btn ok" id="approve" type="button">Approve for quote</button><button class="btn no" id="reject" type="button">Reject</button></div><div class="err" id="derr"></div>` : ''}
+    <ul class="log">${ev.map(e => `<li>${fmt(e.at)} · ${esc(e.actor)} · ${esc(e.from_status || '—')} → ${esc(e.to_status)}${e.note ? ` · ${esc(e.note)}` : ''}</li>`).join('')}</ul>`;
+  if (l.status === 'NEW') {
+    const decide = async d => {
+      $('#approve').disabled = $('#reject').disabled = true; $('#derr').textContent = '';
+      try { await store.decide(id, d, $('#note').value); await load(); }
+      catch (e) { $('#derr').textContent = e.message; $('#approve').disabled = $('#reject').disabled = false; }
+    };
+    $('#approve').onclick = () => decide('APPROVED');
+    $('#reject').onclick = () => decide('REJECTED');
+  }
+}
+async function enter() {
+  const s = await store.session();
+  if (!s) { $('#gate').style.display = 'block'; $('#app').style.display = 'none'; return; }
+  $('#gate').style.display = 'none'; $('#app').style.display = 'block';
+  $('#who').textContent = store.mode === 'REAL' ? `Signed in as ${s.email}` : 'Demo mode · data in this browser only';
+  if (store.mode !== 'REAL') $('#logout').style.display = 'none';
+  load();
+}
+$('#gate').addEventListener('submit', async e => {
+  e.preventDefault(); $('#gerr').textContent = '';
+  try { await store.signIn($('#em').value.trim(), $('#pw').value); enter(); }
+  catch (err) { $('#gerr').textContent = 'Sign-in failed. Check your email and password.'; }
+});
+$('#logout').onclick = async () => { await store.signOut(); location.reload(); };
+$('#q').addEventListener('input', render); $('#fs').addEventListener('change', render); $('#refresh').onclick = load;
+enter();
+</script>
+</body>
+</html>
